@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>Weng - Human Data Quality study plan · Wiki</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Wiki"/><meta property="og:title" content="Weng - Human Data Quality study plan · Wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weng - Human Data Quality study plan · Wiki"/><meta name="twitter:description" content="对照学习 Weng《Thinking about High-Quality Human Data》。 每节循环：回答「自测」问题（口头或写在节末）→ 逐个展开「对照」区块核对 → 学完勾选。标注 🕳 的小节学完后自写原子笔记补缺。 对照表 1."/><meta property="og:description" content="对照学习 Weng《Thinking about High-Quality Human Data》。 每节循环：回答「自测」问题（口头或写在节末）→ 逐个展开「对照」区块核对 → 学完勾选。标注 🕳 的小节学完后自写原子笔记补缺。 对照表 1."/><meta property="og:image:alt" content="对照学习 Weng《Thinking about High-Quality Human Data》。 每节循环：回答「自测」问题（口头或写在节末）→ 逐个展开「对照」区块核对 → 学完勾选。标注 🕳 的小节学完后自写原子笔记补缺。 对照表 1."/><meta property="og:image" content="https://chrispan.me/wiki/static/og-image.png"/><meta property="og:image:url" content="https://chrispan.me/wiki/static/og-image.png"/><meta name="twitter:image" content="https://chrispan.me/wiki/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="chrispan.me/wiki"/><meta property="og:url" content="https://chrispan.me/wiki/notes/Weng---Human-Data-Quality-study-plan"/><meta property="twitter:url" content="https://chrispan.me/wiki/notes/Weng---Human-Data-Quality-study-plan"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="对照学习 Weng《Thinking about High-Quality Human Data》。 每节循环：回答「自测」问题（口头或写在节末）→ 逐个展开「对照」区块核对 → 学完勾选。标注 🕳 的小节学完后自写原子笔记补缺。 对照表 1."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvT0JTL09CUy9xdWFydHovcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBhZGRpbmc6IDJyZW07XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://chrispan.me/wiki/index.xml"/></head><body data-slug="notes/Weng---Human-Data-Quality-study-plan"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><h2 class="page-title"><a href="..">Wiki</a></h2></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div><div class="spacer mobile-only"></div><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索些什么" placeholder="搜索些什么"/><div class="search-layout" data-preview="true"></div></div></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-224"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>目录</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-224" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><h1 class="article-title">Weng - Human Data Quality study plan</h1></div></div><article class="popover-hint"><p>对照学习 <a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data" class="internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng《Thinking about High-Quality Human Data》</a>。</p>
+<p><strong>每节循环</strong>：回答「自测」问题（口头或写在节末）→ 逐个展开「对照」区块核对 → 学完勾选。标注 🕳 的小节学完后自写原子笔记补缺。</p>
+<h2 id="对照表">对照表<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#对照表" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 1. <a href="#1--human-raters--data-quality" class="internal alias">Human Raters ↔ Data Quality</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 2. <a href="#2--the-wisdom-of-the-crowd" class="internal alias">The Wisdom of the Crowd</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 3. <a href="#3--rater-agreement" class="internal alias">Rater Agreement</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 4. <a href="#4--rater-disagreement--two-paradigms" class="internal alias">Rater Disagreement &amp; Two Paradigms</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 5. <a href="#5--data-quality--model-training" class="internal alias">Data Quality ↔ Model Training</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 6. <a href="#6--influence-functions" class="internal alias">Influence Functions 🕳</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 7. <a href="#7--prediction-changes-during-training" class="internal alias">Prediction Changes during Training</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> 8. <a href="#8--noisy-cross-validation" class="internal alias">Noisy Cross-Validation 🕳</a></li>
+</ul>
+<hr/>
+<h2 id="1--human-raters--data-quality">1 · Human Raters ↔ Data Quality<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1--human-raters--data-quality" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>收集人工数据的三步运营流程是什么？每一步各举一个质量抓手。</li>
+<li>“Everyone wants to do the model work, not the data work” 出自哪篇文献？用来引出什么观点？</li>
+<li>ML 技术主要在哪一步介入？它能替代运营细节吗？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#human-raters--data-quality" data-embed-alias="Human Raters ↔ Data Quality"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#human-raters--data-quality" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#human-raters--data-quality</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#人类标注者--数据质量" data-embed-alias="人类标注者 ↔ 数据质量"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#人类标注者--数据质量" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#人类标注者--数据质量</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout todo is-collapsible is-collapsed" data-callout="todo" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🕳 提取缺口 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>学完后自写一条原子笔记，如「数据质量是运营出来的而非算法算出来的」。</p>
+</div>
+</blockquote>
+<h2 id="2--the-wisdom-of-the-crowd">2 · The Wisdom of the Crowd<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2--the-wisdom-of-the-crowd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>Galton 1907「Vox populi」：实验设置、中位数结果、群体智慧为什么有效（误差独立性）？</li>
+<li>Callison-Burch (2009) 在 AMT 上做了哪两件事？“weighted by experts” 与 “weighted by non-experts” 分别怎么算？</li>
+<li>哪些因素会打破群体智慧的保证？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#the-wisdom-of-the-crowd" data-embed-alias="The Wisdom of the Crowd"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#the-wisdom-of-the-crowd" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#the-wisdom-of-the-crowd</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#群体的智慧" data-embed-alias="群体的智慧"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#群体的智慧" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#群体的智慧</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>我的原子笔记 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth" data-block data-embed-alias="undefined"><h1>The median of independent crowd guesses converges to the truth</h1><p><strong>EN</strong> — In Galton’s 1907 “Vox populi” experiment, hundreds of fairgoers guessed the weight of a fat ox, and the median guess landed almost exactly on the true weight. Crowdsourcing works when individual errors are independent and unbiased, so they cancel in aggregate; the guarantee breaks the moment guesses are correlated or some participants are spammers optimizing volume rather than accuracy. That is why real annotation pipelines need competence weighting on top of raw aggregation.</p>
+<p><strong>中文</strong> — 在 Galton 1907 年的 “Vox populi” 实验中，数百名集市参与者猜测一头肥牛的重量，猜测的中位数几乎恰好等于真实重量。众包有效的前提是个体误差相互独立且无偏，从而在聚合中相互抵消；一旦猜测相互关联，或部分参与者是追求数量而非准确的垃圾标注者，这一保证就会失效。这就是为什么真实的标注流程需要在原始聚合之上再加能力加权。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth/../../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency" class="internal alias" data-slug="notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency">Majority vote assumes equal rater competence so annotators must be weighted by estimated proficiency</a></li>
+<li><a href="../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth/../../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated" class="internal alias" data-slug="notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated">Rater disagreement is valid signal in subjective tasks not noise to be eliminated</a></li>
+<li><a href="../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth/../../notes/Self-consistency-sampling-improves-reliability-through-majority-vote" class="internal alias" data-slug="notes/Self-consistency-sampling-improves-reliability-through-majority-vote">Self-consistency sampling improves reliability through majority vote</a></li>
+<li><a href="../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/The-median-of-independent-crowd-guesses-converges-to-the-truth" class="internal transclude-src">指向原始笔记的链接</a></blockquote><p></p>
+</div>
+</blockquote>
+<h2 id="3--rater-agreement">3 · Rater Agreement<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3--rater-agreement" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>Majority vote 隐含什么假设？等价于什么统计量？</li>
+<li>Raw agreement 与 Cohen’s kappa 各怎么计算？kappa 修正什么？何时会高估？</li>
+<li>MACE 生成模型里 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04601em;">ξ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.046em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> 各是什么？用什么算法优化？最终如何恢复真值标签？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#rater-agreement" data-embed-alias="Rater Agreement"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#rater-agreement" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#rater-agreement</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#标注者一致性" data-embed-alias="标注者一致性"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#标注者一致性" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#标注者一致性</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>我的原子笔记 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency" data-block data-embed-alias="undefined"><h1>Majority vote assumes equal rater competence so annotators must be weighted by estimated proficiency</h1><p><strong>EN</strong> — Majority vote gives every annotator equal weight, which fails whenever incentives attract spammers who submit random labels to maximize throughput. Proficiency can be estimated from agreement with experts on a gold set, agreement with the rest of the crowd, or probabilistic models like MACE that learn a per-annotator trustworthiness score; aggregation then weights votes by that score. Cohen’s kappa improves on raw agreement by subtracting chance agreement, though it overcorrects when one label class dominates.</p>
+<p><strong>中文</strong> — 多数投票给每位标注者相同权重，当激励机制吸引提交随机标签以最大化产量的垃圾标注者时就会失效。熟练度可以通过与专家在黄金集上的一致率、与其他标注者的一致率，或 MACE 这类为每位标注者学习可信度分数的概率模型来估计，聚合时再按分数加权。Cohen’s kappa 在原始一致率中减去随机一致性，是更进一步的指标，但当某一标签类别占主导时会过度修正。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency/../../notes/The-median-of-independent-crowd-guesses-converges-to-the-truth" class="internal alias" data-slug="notes/The-median-of-independent-crowd-guesses-converges-to-the-truth">The median of independent crowd guesses converges to the truth</a></li>
+<li><a href="../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency/../../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated" class="internal alias" data-slug="notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated">Rater disagreement is valid signal in subjective tasks not noise to be eliminated</a></li>
+<li><a href="../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency/../../notes/Self-consistency-sampling-improves-reliability-through-majority-vote" class="internal alias" data-slug="notes/Self-consistency-sampling-improves-reliability-through-majority-vote">Self-consistency sampling improves reliability through majority vote</a></li>
+<li><a href="../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency" class="internal transclude-src">指向原始笔记的链接</a></blockquote><p></p>
+</div>
+</blockquote>
+<h2 id="4--rater-disagreement--two-paradigms">4 · Rater Disagreement &amp; Two Paradigms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4--rater-disagreement--two-paradigms" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>Aroyo &amp; Welty (2015) 列了哪些”神话”？哪条对你的冲击最大？</li>
+<li>Descriptive vs Prescriptive 两种范式的定义与各自优缺点？</li>
+<li>Wang et al. (2023) 的两个发现（主题间一致率 0.96→0.25；两端高、中间低）说明什么？</li>
+<li>Disagreement deconvolution 与 multi-annotator 模型分别如何对待分歧（去噪 vs 建模）？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#rater-disagreement--two-paradigms" data-embed-alias="Rater Disagreement &amp; Two Paradigms"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#rater-disagreement--two-paradigms" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#rater-disagreement--two-paradigms</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#标注者分歧与两种范式" data-embed-alias="标注者分歧与两种范式"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#标注者分歧与两种范式" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#标注者分歧与两种范式</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>我的原子笔记 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated" data-block data-embed-alias="undefined"><h1>Rater disagreement is valid signal in subjective tasks not noise to be eliminated</h1><p><strong>EN</strong> — Annotation pipelines usually assume one gold answer and treat disagreement as measurement error. In safety, social, and cultural tasks, multiple interpretations are legitimately correct, and agreement varies from 0.96 on violence to 0.25 on personal topics; Rottger et al.’s descriptive paradigm models the distribution of beliefs instead of forcing a single label. Only disagreement from stochastic errors or poorly designed tasks should be suppressed — the rest reveals who believes what and why, and even annotator identity is a statistically significant factor in toxicity labeling.</p>
+<p><strong>中文</strong> — 标注流程通常假设存在唯一黄金答案，把分歧当作测量误差。但在安全、社会、文化类任务中，多种解释可以同时合理正确，一致率从暴力主题的 0.96 到个人主题的 0.25 不等；Rottger 等人的”描述性范式”建模信念的分布，而非强行规定单一标签。只有由随机错误或任务设计不当引起的分歧才应被消除——其余分歧揭示了谁相信什么、为什么，在毒性标注中甚至标注者身份本身也是统计显著的因素。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated/../../notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency" class="internal alias" data-slug="notes/Majority-vote-assumes-equal-rater-competence-so-annotators-must-be-weighted-by-estimated-proficiency">Majority vote assumes equal rater competence so annotators must be weighted by estimated proficiency</a></li>
+<li><a href="../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated/../../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization" class="internal alias" data-slug="notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization">Hard-to-learn samples are often the most informative for OOD generalization</a></li>
+<li><a href="../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated/../../notes/Work-becomes-easier-to-automate-when-evaluation-criteria-are-externalized" class="internal alias" data-slug="notes/Work-becomes-easier-to-automate-when-evaluation-criteria-are-externalized">Work becomes easier to automate when evaluation criteria are externalized</a></li>
+<li><a href="../notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/Rater-disagreement-is-valid-signal-in-subjective-tasks-not-noise-to-be-eliminated" class="internal transclude-src">指向原始笔记的链接</a></blockquote><p></p>
+</div>
+</blockquote>
+<h2 id="5--data-quality--model-training">5 · Data Quality ↔ Model Training<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5--data-quality--model-training" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>本节方法与 “training with noisy data” 的边界在哪里？</li>
+<li>错标检测方法可以分为哪几族？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#data-quality--model-training" data-embed-alias="Data Quality ↔ Model Training"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#data-quality--model-training" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#data-quality--model-training</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#数据质量--模型训练" data-embed-alias="数据质量 ↔ 模型训练"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#数据质量--模型训练" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#数据质量--模型训练</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout info is-collapsible is-collapsed" data-callout="info" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>说明 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>短引言节，与 S6–S8 合并复习。</p>
+</div>
+</blockquote>
+<h2 id="6--influence-functions">6 · Influence Functions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6--influence-functions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>Influence function 度量什么？对样本 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> 加权 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> 的定义是什么？删除一个样本等价于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> 取多少？</li>
+<li>如何用 self-influence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.07382em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0738em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord mtight">up,loss</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 找错标？直觉是什么？</li>
+<li>为什么难以规模化？Grosse et al. (2023) 用什么近似？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#influence-functions" data-embed-alias="Influence Functions"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#influence-functions" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#influence-functions</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#影响函数" data-embed-alias="影响函数"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#影响函数" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#影响函数</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout todo is-collapsible is-collapsed" data-callout="todo" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🕳 提取缺口 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>学完后自写一条原子笔记，如「影响函数用闭式解近似 leave-one-out 重训练」。</p>
+</div>
+</blockquote>
+<h2 id="7--prediction-changes-during-training">7 · Prediction Changes during Training<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7--prediction-changes-during-training" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>Data Maps 的两个轴怎么定义？hard-to-learn 区域（低置信、低变异）为什么预示错标？WinoGrande 1% 翻转实验如何验证？</li>
+<li>为什么不能把所有 hard-to-learn 都当错标？ambiguous / hard 样本对 OOD 泛化有什么价值？</li>
+<li>Toneva et al. (2019)：forgettable vs unforgettable 怎么定义？哪类样本最常被遗忘？裁剪 unforgettable 的结论是什么？</li>
+<li>AUM：margin 怎么定义？错标样本的 margin 为什么小？threshold samples（伪类 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>）如何定阈值？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#prediction-changes-during-training" data-embed-alias="Prediction Changes during Training"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#prediction-changes-during-training" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#prediction-changes-during-training</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#训练过程中的预测变化" data-embed-alias="训练过程中的预测变化"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#训练过程中的预测变化" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#训练过程中的预测变化</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>我的原子笔记 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses" data-block data-embed-alias="undefined"><h1>Training dynamics expose mislabeled data that static filtering misses</h1><p><strong>EN</strong> — After a dataset is built, mislabels surface through how the model trains on them. Data Maps flags samples with persistently low confidence and low variability as likely flipped; AUM exploits the tension between generalization from similar examples and a wrong supervisory signal, which shrinks the training margin; influence functions approximate leave-one-out retraining in closed form to find points whose removal would most reduce their own loss. Training itself becomes a data-quality audit — no clean gold set required.</p>
+<p><strong>中文</strong> — 数据集构建完成后，错误标签会通过模型的训练方式暴露出来。Data Maps 将持续低置信度、低变异性的样本标记为可能被翻转；AUM 利用”从相似样本泛化”与”错误监督信号”之间的张力——错标样本的训练 margin 会被这种张力压缩；影响函数以闭式形式近似留一重训练，找出移除后最能降低自身损失的样本。训练本身由此变成数据质量审计——无需干净的黄金集。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses/../../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization" class="internal alias" data-slug="notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization">Hard-to-learn samples are often the most informative for OOD generalization</a></li>
+<li><a href="../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses/../../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance" class="internal alias" data-slug="notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance">Unforgettable examples can be pruned without hurting model performance</a></li>
+<li><a href="../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses/../../notes/APO-quality-depends-on-validation-data-and-metric-design" class="internal alias" data-slug="notes/APO-quality-depends-on-validation-data-and-metric-design">APO quality depends on validation data and metric design</a></li>
+<li><a href="../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses" class="internal transclude-src">指向原始笔记的链接</a></blockquote>
+<blockquote class="transclude" data-url="../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization" data-block data-embed-alias="undefined"><h1>Hard-to-learn samples are often the most informative for OOD generalization</h1><p><strong>EN</strong> — Data Maps shows hard-to-learn (low confidence, low variability) samples are the most likely to be mislabeled — but the same study finds ambiguous (high variability) and hard samples improve OOD generalization, beating even training on the full dataset. Treating “hard for the model” as “wrong in the data” would discard the most educational examples. Difficulty is a flag for inspection, not a deletion order.</p>
+<p><strong>中文</strong> — Data Maps 表明难学习（低置信度、低变异性）样本最可能被标错——但同一研究发现，模糊（高变异性）和困难样本能改善 OOD 泛化，效果甚至超过用完整数据集训练。把”模型觉得难”当作”数据标错了”会丢弃最有教育价值的样本。困难是需要检查的信号，而非删除指令。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization/../../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses" class="internal alias" data-slug="notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses">Training dynamics expose mislabeled data that static filtering misses</a></li>
+<li><a href="../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization/../../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance" class="internal alias" data-slug="notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance">Unforgettable examples can be pruned without hurting model performance</a></li>
+<li><a href="../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization/../../notes/High-value-work-sits-where-out-of-distribution-judgment-meets-leverage" class="internal alias" data-slug="notes/High-value-work-sits-where-out-of-distribution-judgment-meets-leverage">High-value work sits where out-of-distribution judgment meets leverage</a></li>
+<li><a href="../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization" class="internal transclude-src">指向原始笔记的链接</a></blockquote>
+<blockquote class="transclude" data-url="../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance" data-block data-embed-alias="undefined"><h1>Unforgettable examples can be pruned without hurting model performance</h1><p><strong>EN</strong> — Toneva et al. tracked prediction flips during training and found many examples are “unforgettable”: once classified correctly, never wrong again. These examples are redundant — removing them leaves performance intact — while noisy-labeled and visually unusual examples are the most forgotten. Forgetting events are stable across random seeds and transferable across architectures, making them a reliable, cheap signal for data pruning.</p>
+<p><strong>中文</strong> — Toneva 等人追踪训练过程中的预测翻转，发现许多样本是”不可遗忘”的：一旦被正确分类就再也不会出错。这些样本是冗余的——移除它们不影响性能——而带噪声标签和视觉上不常见的样本最容易被遗忘。遗忘事件在不同随机种子间稳定、在不同架构间可迁移，是数据裁剪中可靠且廉价的信号。</p>
+<p>Related:</p>
+<ul>
+<li><a href="../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance/../../notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses" class="internal alias" data-slug="notes/Training-dynamics-expose-mislabeled-data-that-static-filtering-misses">Training dynamics expose mislabeled data that static filtering misses</a></li>
+<li><a href="../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance/../../notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization" class="internal alias" data-slug="notes/Hard-to-learn-samples-are-often-the-most-informative-for-OOD-generalization">Hard-to-learn samples are often the most informative for OOD generalization</a></li>
+<li><a href="../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance/../../notes/Scale-often-requires-removing-variation-rather-than-adding-features" class="internal alias" data-slug="notes/Scale-often-requires-removing-variation-rather-than-adding-features">Scale often requires removing variation rather than adding features</a></li>
+<li><a href="../notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance/../.././maps/LLM-Training" class="internal alias" data-slug="maps/LLM-Training">LLM Training</a></li>
+</ul><a href=".././notes/Unforgettable-examples-can-be-pruned-without-hurting-model-performance" class="internal transclude-src">指向原始笔记的链接</a></blockquote><p></p>
+</div>
+</blockquote>
+<h2 id="8--noisy-cross-validation">8 · Noisy Cross-Validation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8--noisy-cross-validation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question" data-callout="question">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>自测 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li>NCV 的流程是什么？INCV 如何迭代扩大可信集 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span>？</li>
+<li>与 S7 的方法相比，NCV 的额外成本是什么？</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 原文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#noisy-cross-validation" data-embed-alias="Noisy Cross-Validation"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#noisy-cross-validation" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#noisy-cross-validation</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>对照 · 译文 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p></p><blockquote class="transclude" data-url="../sources/Weng---Thinking-about-High-Quality-Human-Data" data-block="#噪声交叉验证" data-embed-alias="噪声交叉验证"><a href=".././sources/Weng---Thinking-about-High-Quality-Human-Data#噪声交叉验证" class="transclude-inner internal alias" data-slug="sources/Weng---Thinking-about-High-Quality-Human-Data">Weng---Thinking-about-High-Quality-Human-Data#噪声交叉验证</a></blockquote><p></p>
+</div>
+</blockquote>
+<blockquote class="callout todo is-collapsible is-collapsed" data-callout="todo" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🕳 提取缺口 </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>学完后自写一条原子笔记，如「半分区交叉验证把标签与对侧模型预测的一致性当作清洁度信号」。</p>
+</div>
+</blockquote></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-25" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#对照表" data-for="对照表">对照表</a></li><li class="depth-0"><a href="#1--human-raters--data-quality" data-for="1--human-raters--data-quality">1 · Human Raters ↔ Data Quality</a></li><li class="depth-0"><a href="#2--the-wisdom-of-the-crowd" data-for="2--the-wisdom-of-the-crowd">2 · The Wisdom of the Crowd</a></li><li class="depth-0"><a href="#3--rater-agreement" data-for="3--rater-agreement">3 · Rater Agreement</a></li><li class="depth-0"><a href="#4--rater-disagreement--two-paradigms" data-for="4--rater-disagreement--two-paradigms">4 · Rater Disagreement &amp; Two Paradigms</a></li><li class="depth-0"><a href="#5--data-quality--model-training" data-for="5--data-quality--model-training">5 · Data Quality ↔ Model Training</a></li><li class="depth-0"><a href="#6--influence-functions" data-for="6--influence-functions">6 · Influence Functions</a></li><li class="depth-0"><a href="#7--prediction-changes-during-training" data-for="7--prediction-changes-during-training">7 · Prediction Changes during Training</a></li><li class="depth-0"><a href="#8--noisy-cross-validation" data-for="8--noisy-cross-validation">8 · Noisy Cross-Validation</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-2" class="overflow"><li><a href="../" class="internal">Wiki</a></li><li><a href="../maps/Learning" class="internal">Learning</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../postscript.js" type="module"></script></html>
