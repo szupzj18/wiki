@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>The Landscape of Agentic Reinforcement Learning for LLMs, A Survey · Wiki</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Wiki"/><meta property="og:title" content="The Landscape of Agentic Reinforcement Learning for LLMs, A Survey · Wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="The Landscape of Agentic Reinforcement Learning for LLMs, A Survey · Wiki"/><meta name="twitter:description" content="TMLR 01/2026 · 500+ 篇文献 Summary / 摘要 EN: This survey formalizes Agentic RL — the paradigm shift from treating LLMs as static sequence generators to treating them as learnable policies embedded in sequential decision-making loops."/><meta property="og:description" content="TMLR 01/2026 · 500+ 篇文献 Summary / 摘要 EN: This survey formalizes Agentic RL — the paradigm shift from treating LLMs as static sequence generators to treating them as learnable policies embedded in sequential decision-making loops."/><meta property="og:image:alt" content="TMLR 01/2026 · 500+ 篇文献 Summary / 摘要 EN: This survey formalizes Agentic RL — the paradigm shift from treating LLMs as static sequence generators to treating them as learnable policies embedded in sequential decision-making loops."/><meta property="og:image" content="https://chrispan.me/wiki/static/og-image.png"/><meta property="og:image:url" content="https://chrispan.me/wiki/static/og-image.png"/><meta name="twitter:image" content="https://chrispan.me/wiki/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="chrispan.me/wiki"/><meta property="og:url" content="https://chrispan.me/wiki/sources/Zhang-et-al---Landscape-of-Agentic-RL,-A-Survey"/><meta property="twitter:url" content="https://chrispan.me/wiki/sources/Zhang-et-al---Landscape-of-Agentic-RL,-A-Survey"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="TMLR 01/2026 · 500+ 篇文献 Summary / 摘要 EN: This survey formalizes Agentic RL — the paradigm shift from treating LLMs as static sequence generators to treating them as learnable policies embedded in sequential decision-making loops."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvT0JTL09CUy9xdWFydHovcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBhZGRpbmc6IDJyZW07XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://chrispan.me/wiki/index.xml"/></head><body data-slug="sources/Zhang-et-al---Landscape-of-Agentic-RL,-A-Survey"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><h2 class="page-title"><a href="..">Wiki</a></h2></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div><div class="spacer mobile-only"></div><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索些什么" placeholder="搜索些什么"/><div class="search-layout" data-preview="true"></div></div></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-532"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>目录</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-532" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><h1 class="article-title">The Landscape of Agentic Reinforcement Learning for LLMs, A Survey</h1></div></div><article class="popover-hint"><blockquote>
+<p>TMLR 01/2026 · 500+ 篇文献</p>
+</blockquote>
+<h2 id="summary--摘要">Summary / 摘要<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#summary--摘要" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>EN:</strong> This survey formalizes Agentic RL — the paradigm shift from treating LLMs as static sequence generators to treating them as learnable policies embedded in sequential decision-making loops. The core theoretical move is casting conventional preference-based RLHF as a <em>degenerate single-step MDP</em> (one prompt, one response, one scalar reward, full observability) versus Agentic RL as a <em>temporally extended POMDP</em> (dynamic world state, partial observations, text ∪ environment actions, step-wise sparse+dense rewards). On this foundation it builds a twofold taxonomy: one by agentic capability (planning, tool use, memory, reasoning, self-improvement, perception) and one by application domain. Its central thesis: RL is the mechanism that transforms these capabilities from static, heuristic modules into adaptive, robust behavior. It closes with three frontier challenges — trustworthiness, scaling agentic training, and scaling agentic environments.</p>
+<p><strong>ZH:</strong> 本文把”智能体强化学习”（Agentic RL）形式化为一次范式转移：LLM 不再是静态的序列生成器，而是嵌入序列决策回路中的可学习策略。核心理论动作是把传统偏好对齐（RLHF）视为<em>退化的单步 MDP</em>（一个提示、一个回答、一个标量奖励、完全可观测），而 Agentic RL 是<em>时间延展的 POMDP</em>（动态世界状态、部分可观测、文本∪环境动作、逐步的稀疏+稠密奖励）。在此之上建立双重分类法：按智能体能力（规划、工具使用、记忆、推理、自我改进、感知）与按应用领域。中心论点：RL 是把这些能力从静态启发式模块转变为自适应鲁棒行为的关键机制。结尾提出三大前沿挑战——可信性、规模化训练、规模化环境。</p>
+<h2 id="key-takeaways--核心要点">Key Takeaways / 核心要点<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-takeaways--核心要点" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p><strong>EN:</strong> PBRFT (RLHF/DPO) is a degenerate MDP with horizon T=1; Agentic RL is a POMDP with T>1, partial observability, and an action space of text ∪ environment-changing actions.
+<strong>ZH:</strong> 偏好对齐是视界 T=1 的退化 MDP；Agentic RL 是 T>1 的 POMDP，部分可观测，动作空间是文本∪改变环境的动作。</p>
+</li>
+<li>
+<p><strong>EN:</strong> RL’s role across all six capabilities is the same: replace static heuristics with learned policies — e.g. memory becomes an RL-controlled subsystem deciding what to store, retrieve, and forget, not a passive vector store.
+<strong>ZH:</strong> RL 在六大能力中扮演同一角色：用学习到的策略替换静态启发式——例如记忆变成由 RL 控制、决定存什么/取什么/忘什么的子系统，而非被动向量库。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Planning splits into two paradigms — RL as external guide (a learned value function steering MCTS, as in RAP/LATS) vs RL as internal driver (the LLM itself as policy, as in ETO/VOYAGER); the future is a meta-policy that chooses when to deliberate.
+<strong>ZH:</strong> 规划分两种范式——RL 作外部引导（学习价值函数指导 MCTS，如 RAP/LATS）与 RL 作内部驱动（LLM 本身即策略，如 ETO/VOYAGER）；未来是一个决定”何时深思”的元策略。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Tool use evolves in three stages: ReAct-style imitation (SFT/prompting, brittle) → tool-integrated RL (outcome-driven optimization; emergent self-correction even from base models) → long-horizon multi-turn TIR, whose bottleneck is temporal credit assignment and reward hacking.
+<strong>ZH:</strong> 工具使用经历三阶段：ReAct 式模仿（SFT/提示，脆弱）→ 工具集成 RL（结果驱动优化，甚至从基座模型涌现出自纠错）→ 长程多轮 TIR，瓶颈是时序信用分配与奖励作弊。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Self-improvement has three levels: verbal self-correction (ephemeral, no gradients), RL-internalized self-correction (durable, in-weights), and iterative self-training (self-play, execution-guided curricula, collective bootstrapping — R-Zero, Absolute Zero, SiriuS).
+<strong>ZH:</strong> 自我改进有三个层次：口头自纠（临时、无梯度）、RL 内化的自纠（持久、写入权重）、迭代自训练（自博弈、执行引导课程、集体自举——R-Zero、Absolute Zero、SiriuS）。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Reasoning is framed as fast (System 1) vs slow (System 2); the open problem is training slow-thinking reliably in agentic settings without overthinking, pointing to adaptive test-time scaling.
+<strong>ZH:</strong> 推理被框定为快（系统1）与慢（系统2）；开放问题是在智能体场景中可靠训练慢思考且避免过度思考，方向是自适应测试时扩展。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Trustworthiness is worse for agents than for chatbots: RL turns the agent from a passive victim of manipulation into an active reward-seeking exploiter — it will learn and entrench unsafe paths if they pay. Mitigation = sandboxing + process rewards that penalize unsafe intermediate steps + adversarial training inside the RL loop.
+<strong>ZH:</strong> 智能体的可信问题比聊天机器人更严重：RL 把智能体从被动的操纵受害者变成主动追逐奖励的利用者——只要不安全路径有回报，它就会学会并固化。缓解 = 沙箱 + 惩罚不安全中间步骤的过程奖励 + RL 回路内的对抗训练。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Outcome-only RL imposes a “hallucination tax”: it degrades abstention, so agents answer unanswerable questions rather than saying “I don’t know”; SFT on solvable+unsolvable mixes restores epistemic humility.
+<strong>ZH:</strong> 纯结果 RL 会征收”幻觉税”：它削弱拒答能力，智能体宁可胡答也不说”不知道”；用可解+不可解混合数据做 SFT 可恢复认知谦逊。</p>
+</li>
+<li>
+<p><strong>EN:</strong> Scaling environments means treating the environment as optimizable, not static: automated reward design (explorer agents generate trajectories to train reward models) + automated curriculum generation (EnvGen-style procedural content targeting the agent’s weaknesses) form a self-improving training flywheel.
+<strong>ZH:</strong> 规模化环境意味着把环境当作可优化对象而非静态背景：自动化奖励设计（探索者智能体生成轨迹训练奖励模型）+ 自动化课程生成（EnvGen 式针对弱点的程序化内容）构成自我改进的训练飞轮。</p>
+</li>
+</ul>
+<h2 id="核心框架--framework-digest">核心框架 / Framework Digest<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#核心框架--framework-digest" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="mdp-对比table-1">MDP 对比（Table 1）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mdp-对比table-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>维度</th><th>PBRFT (RLHF/DPO)</th><th>Agentic RL</th></tr></thead><tbody><tr><td>状态</td><td>单个 prompt，episode 立即结束</td><td>世界状态 s_t，观察 o_t = O(s_t)，T>1</td></tr><tr><td>动作</td><td>纯文本序列</td><td>A_text ∪ A_action（工具调用/环境交互，特殊 token 分隔）</td></tr><tr><td>转移</td><td>确定性直达终止态</td><td>动态 P(s_{t+1}|s_t, a_t)，含工具结果/用户消息/环境反馈</td></tr><tr><td>奖励</td><td>单标量 r(a)</td><td>逐步 R(s_t, a_t)，稀疏任务奖励 + 稠密子奖励</td></tr><tr><td>目标</td><td>E[r(a)]</td><td>E[Σ γ^t R(s_t, a_t)]</td></tr></tbody></table></div>
+<h3 id="能力分类法section-3">能力分类法（Section 3）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#能力分类法section-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Planning</strong> — 外部引导（MCTS+学习价值函数）vs 内部驱动（LLM 即策略）；前瞻： deliberation 与 intuition 的综合，元策略治理深思过程</li>
+<li><strong>Tool Use</strong> — ReAct 模仿 → TIR 结果驱动 RL → 长程多轮 TIR（时序信用分配是核心未解问题）</li>
+<li><strong>Memory</strong> — RAG 式被动存储 → RL 控制存取忘 → 跨 episode 持续适应</li>
+<li><strong>Self-Improvement</strong> — 口头自纠 → RL 内化自纠 → 迭代自训练（自博弈/执行课程/集体自举）；前瞻：反思能力本身的元进化</li>
+<li><strong>Reasoning</strong> — 快思考 vs 慢思考；agentic 场景下慢思考的训练稳定性与 overthinking</li>
+<li><strong>Perception</strong> — 被动感知 → 主动视觉认知（grounding 驱动、工具驱动、生成驱动）</li>
+</ol>
+<h3 id="三大挑战section-6">三大挑战（Section 6）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#三大挑战section-6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Trustworthiness</strong>: security（间接提示注入、多智能体通信投毒、RL 放大的奖励黑客）、hallucination（幻觉税）、sycophancy（RLHF 本身激励谄媚）</li>
+<li><strong>Scaling Training</strong>: 计算（Agent RL Scaling Law：更长训练视界提升工具使用频率与推理深度）、模型规模（熵崩塌风险）、数据（跨域 RL 有协同也有干扰）、效率</li>
+<li><strong>Scaling Environments</strong>: 环境从静态变为可协同进化的系统；自动化奖励 + 自适应课程 = 训练飞轮</li>
+</ul>
+<h2 id="extracted-notes--提取笔记">Extracted Notes / 提取笔记<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#extracted-notes--提取笔记" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href=".././notes/Agentic-RL-reframes-LLMs-as-policies-in-POMDPs-rather-than-single-step-generators" class="internal alias" data-slug="notes/Agentic-RL-reframes-LLMs-as-policies-in-POMDPs-rather-than-single-step-generators">Agentic RL reframes LLMs as policies in POMDPs rather than single-step generators</a></li>
+<li><a href=".././notes/RL-turns-agent-capabilities-from-static-heuristics-into-adaptive-behavior" class="internal alias" data-slug="notes/RL-turns-agent-capabilities-from-static-heuristics-into-adaptive-behavior">RL turns agent capabilities from static heuristics into adaptive behavior</a></li>
+<li><a href=".././notes/Tool-use-evolves-from-imitation-to-outcome-driven-RL-to-long-horizon-TIR" class="internal alias" data-slug="notes/Tool-use-evolves-from-imitation-to-outcome-driven-RL-to-long-horizon-TIR">Tool use evolves from imitation to outcome-driven RL to long-horizon TIR</a></li>
+<li><a href=".././notes/Self-improvement-has-three-levels-from-verbal-correction-to-iterative-self-training" class="internal alias" data-slug="notes/Self-improvement-has-three-levels-from-verbal-correction-to-iterative-self-training">Self-improvement has three levels from verbal correction to iterative self-training</a></li>
+<li><a href=".././notes/RL-can-turn-agents-into-active-reward-hacking-exploiters" class="internal alias" data-slug="notes/RL-can-turn-agents-into-active-reward-hacking-exploiters">RL can turn agents into active reward-hacking exploiters</a></li>
+<li><a href=".././notes/Temporal-credit-assignment-is-the-bottleneck-of-long-horizon-agentic-RL" class="internal alias" data-slug="notes/Temporal-credit-assignment-is-the-bottleneck-of-long-horizon-agentic-RL">Temporal credit assignment is the bottleneck of long-horizon agentic RL</a></li>
+<li><a href=".././notes/Outcome-only-RL-imposes-a-hallucination-tax-on-abstention" class="internal alias" data-slug="notes/Outcome-only-RL-imposes-a-hallucination-tax-on-abstention">Outcome-only RL imposes a hallucination tax on abstention</a></li>
+</ul>
+<h2 id="与现有笔记的关联--connections">与现有笔记的关联 / Connections<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#与现有笔记的关联--connections" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>更新 <a href=".././notes/An-LLM-agent-combines-planning-memory-and-tool-use-around-a-language-model-core" class="internal alias" data-slug="notes/An-LLM-agent-combines-planning-memory-and-tool-use-around-a-language-model-core">An LLM agent combines planning memory and tool use around a language model core</a>：2023 年的 Weng 框架把三组件当作架构模块；本综述展示 RL 如何把每个模块变成可学习策略</li>
+<li>与 <a href=".././notes/Every-reward-function-is-a-hackable-proxy-for-the-true-goal" class="internal alias" data-slug="notes/Every-reward-function-is-a-hackable-proxy-for-the-true-goal">Every reward function is a hackable proxy for the true goal</a> 呼应：RL 智能体是奖励黑客的主动实施者</li>
+<li>与 <a href=".././notes/An-agent's-short-term-memory-is-its-context-window-and-long-term-memory-is-external-retrieval" class="internal alias" data-slug="notes/An-agent's-short-term-memory-is-its-context-window-and-long-term-memory-is-external-retrieval">An agent’s short-term memory is its context window and long-term memory is external retrieval</a> 对比：记忆从”外部检索”进化为”RL 控制的存取忘子系统”</li>
+<li>姊妹篇：<a href="../sources/Zhang-et-al---A-Survey-of-RL-for-Large-Reasoning-Models" class="internal alias" data-slug="sources/Zhang-et-al---A-Survey-of-RL-for-Large-Reasoning-Models">Zhang et al - A Survey of RL for Large Reasoning Models</a>（单步推理侧的 RL 全景）</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-323" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#summary--摘要" data-for="summary--摘要">Summary / 摘要</a></li><li class="depth-0"><a href="#key-takeaways--核心要点" data-for="key-takeaways--核心要点">Key Takeaways / 核心要点</a></li><li class="depth-0"><a href="#核心框架--framework-digest" data-for="核心框架--framework-digest">核心框架 / Framework Digest</a></li><li class="depth-1"><a href="#mdp-对比table-1" data-for="mdp-对比table-1">MDP 对比（Table 1）</a></li><li class="depth-1"><a href="#能力分类法section-3" data-for="能力分类法section-3">能力分类法（Section 3）</a></li><li class="depth-1"><a href="#三大挑战section-6" data-for="三大挑战section-6">三大挑战（Section 6）</a></li><li class="depth-0"><a href="#extracted-notes--提取笔记" data-for="extracted-notes--提取笔记">Extracted Notes / 提取笔记</a></li><li class="depth-0"><a href="#与现有笔记的关联--connections" data-for="与现有笔记的关联--connections">与现有笔记的关联 / Connections</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-2" class="overflow"><li><a href="../" class="internal">Wiki</a></li><li><a href="../maps/LLM-Training" class="internal">LLM Training</a></li><li><a href="../sources/Zhang-et-al---A-Survey-of-RL-for-Large-Reasoning-Models" class="internal">A Survey of Reinforcement Learning for Large Reasoning Models</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../postscript.js" type="module"></script></html>

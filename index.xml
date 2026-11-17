@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Wiki</title>
+      <link>https://chrispan.me/wiki</link>
+      <description>最近的10条笔记 on Wiki</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Wiki</title>
+    <link>https://chrispan.me/wiki/</link>
+    <guid>https://chrispan.me/wiki/</guid>
+    <description><![CDATA[ 这是我的个人知识库，用 Obsidian 写，自动发布到这里。 作者 Chris Pan · GitHub · 个人主页 库里有三种页面： 地图（maps）：一个主题或一个人的入口页，把相关的笔记和来源串起来，并列出还没想清楚的问题。 笔记（notes）：一条一个想法的原子笔记，大多是中英双语，每篇都写了局限。状态都是 draft，意思是还在改。 来源（sources）：读过、看过的文章、访谈、论文的摘要和要点。原文和字幕全文不在这里发布。 可以从这几张地图开始： 张一鸣：从 2010 年的”克己”到 2021 年的”平常心” Elon Musk：有用、第一性原理、ego/能力比 David ... ]]></description>
+    <pubDate>Tue, 17 Nov 2026 03:04:16 GMT</pubDate>
+  </item><item>
+    <title>下一幕，智能组织（百度世界 2026 开场演讲）</title>
+    <link>https://chrispan.me/wiki/sources/%E6%9D%8E%E5%BD%A6%E5%AE%8F---%E7%99%BE%E5%BA%A6%E4%B8%96%E7%95%8C2026-%E4%B8%8B%E4%B8%80%E5%B9%95%EF%BC%8C%E6%99%BA%E8%83%BD%E7%BB%84%E7%BB%87</link>
+    <guid>https://chrispan.me/wiki/sources/%E6%9D%8E%E5%BD%A6%E5%AE%8F---%E7%99%BE%E5%BA%A6%E4%B8%96%E7%95%8C2026-%E4%B8%8B%E4%B8%80%E5%B9%95%EF%BC%8C%E6%99%BA%E8%83%BD%E7%BB%84%E7%BB%87</guid>
+    <description><![CDATA[  时间地点：2026-11-12，北京国家会议中心，第 21 届百度世界大会 来源：新浪财经 演讲原文 · 搜狐 全文 · 新华网 · B 站完整视频 核心判断 2016 年提出 “AI is the new electricity”，十年后已成共识。若能源是 AI 的上游，下游就是组织能力——不同于科层制的 AI 原生组织，即「智能组织」。 「AI 不止是一场技术革命，它更是一场组织革命，而这个趋势是不可阻挡的。」 很多企业一把手问：「为什么我的 token 花费越来越多，但是我的收入和利润不见涨？」——因为「只是更换了电机，但是没有重新设计工厂」。 「换一台新的 AI 的电机只是起点，重新... ]]></description>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>A bug you can reproduce on demand is already 90% fixed. Everything before that point is guesswork and guessing scales terribly</title>
+    <link>https://chrispan.me/wiki/notes/A-bug-you-can-reproduce-on-demand-is-already-90-percent-fixed.-Everything-before-that-point-is-guesswork-and-guessing-scales-terribly</link>
+    <guid>https://chrispan.me/wiki/notes/A-bug-you-can-reproduce-on-demand-is-already-90-percent-fixed.-Everything-before-that-point-is-guesswork-and-guessing-scales-terribly</guid>
+    <description><![CDATA[ Debugging is mostly the work of getting to a reliable reproduction. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Every bug anyone hit before you is sitting in the history, and a lot of people don&#039;t know how to query it</title>
+    <link>https://chrispan.me/wiki/notes/Every-bug-anyone-hit-before-you-is-sitting-in-the-history,-and-a-lot-of-people-don't-know-how-to-query-it</link>
+    <guid>https://chrispan.me/wiki/notes/Every-bug-anyone-hit-before-you-is-sitting-in-the-history,-and-a-lot-of-people-don't-know-how-to-query-it</guid>
+    <description><![CDATA[ A repository’s history already holds the answers to most “why is this here?” and “what broke this?” questions. Most people just never query it. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Every network call is a coin flip you don&#039;t get to see the result of. Write the code that assumes it landed wrong</title>
+    <link>https://chrispan.me/wiki/notes/Every-network-call-is-a-coin-flip-you-don't-get-to-see-the-result-of.-Write-the-code-that-assumes-it-landed-wrong</link>
+    <guid>https://chrispan.me/wiki/notes/Every-network-call-is-a-coin-flip-you-don't-get-to-see-the-result-of.-Write-the-code-that-assumes-it-landed-wrong</guid>
+    <description><![CDATA[ Amateur code answers one question: what happens when everything goes right? Production code has to answer the rest. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>If you can&#039;t produce a number showing it got faster, you didn&#039;t optimize anything. You made the code uglier and effectively told yourself a bedtime story</title>
+    <link>https://chrispan.me/wiki/notes/If-you-can't-produce-a-number-showing-it-got-faster,-you-didn't-optimize-anything.-You-made-the-code-uglier-and-effectively-told-yourself-a-bedtime-story</link>
+    <guid>https://chrispan.me/wiki/notes/If-you-can't-produce-a-number-showing-it-got-faster,-you-didn't-optimize-anything.-You-made-the-code-uglier-and-effectively-told-yourself-a-bedtime-story</guid>
+    <description><![CDATA[ Intuition about performance is unreliable, and asymptotic analysis can hide what matters. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Systems learn by removing the parts that fail</title>
+    <link>https://chrispan.me/wiki/notes/Systems-learn-by-removing-the-parts-that-fail</link>
+    <guid>https://chrispan.me/wiki/notes/Systems-learn-by-removing-the-parts-that-fail</guid>
+    <description><![CDATA[ EN — Taleb, in the prologue of Skin in the Game: “Systems learn by removing parts, via negativa.” A system gets better because its bad parts drop out, not because they get wiser. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Tools expire, but problems don&#039;t. Every tool is an answer to a question that existed before it did</title>
+    <link>https://chrispan.me/wiki/notes/Tools-expire,-but-problems-don't.-Every-tool-is-an-answer-to-a-question-that-existed-before-it-did</link>
+    <guid>https://chrispan.me/wiki/notes/Tools-expire,-but-problems-don't.-Every-tool-is-an-answer-to-a-question-that-existed-before-it-did</guid>
+    <description><![CDATA[ Every tool is an answer to a question that existed before it. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>You don&#039;t learn from the thing working, you learn from the thing not working</title>
+    <link>https://chrispan.me/wiki/notes/You-don't-learn-from-the-thing-working,-you-learn-from-the-thing-not-working</link>
+    <guid>https://chrispan.me/wiki/notes/You-don't-learn-from-the-thing-working,-you-learn-from-the-thing-not-working</guid>
+    <description><![CDATA[ Watching someone else’s code work teaches almost nothing, because the learning happened in the confusion that got edited out. ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>How to Get Cracked at Programming</title>
+    <link>https://chrispan.me/wiki/sources/The-Coding-Gopher---How-to-Get-Cracked-at-Programming</link>
+    <guid>https://chrispan.me/wiki/sources/The-Coding-Gopher---How-to-Get-Cracked-at-Programming</guid>
+    <description><![CDATA[ Summary A 9-minute YouTube video from The Coding Gopher: six principles the author says he “learned the stupid way, which is to say slowly and mostly in production.” None of them is a framework, and each comes with one concrete example: write-ahead logs, TCP message boundaries, git bisect, a cache-i... ]]></description>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
